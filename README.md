@@ -1,2 +1,2 @@
 # FPB1_Sisop
-repo untuk fp sisop
+Semangat!! FPB1 : D
