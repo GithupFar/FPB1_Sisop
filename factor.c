@@ -1,26 +1,38 @@
-#include <stdio.h>
-#include <stdlib.h> //atol
-#include <string.h> //strcpy
+#include "types.h"
+#include "user.h"
 
-int main (int argc, char * argv [])
+//fungsi merubah string ke int ->nemu di stackoverflow
+unsigned long 
+convert(char* str)
 {
-  long int number,div=2,i=1;
-  char buffer[256];
-  strcpy (buffer,argv[i]);
-  number = atol(buffer);
-  printf("%s: ",buffer);
-  
+    unsigned long mult = 1;
+    int i;
+    unsigned long re = 0;
+    int len = strlen(str); //lib. "types.h"
+    for(i = len -1 ; i >= 0 ; i--)
+    {
+        // We are subtracting 48 because the numbers in ASCII starts at 48.
+        re = re + ((int)str[i] -48)*mult;  //why multiple by 1?
+        mult = mult*10; //why multiple by 10?
+    }
+    return re;
+}
+
+int
+main (int argc, char * argv [])
+{
+  int number = convert(argv[1]) ,div=2;
+
    while(number!=0){
         if(number%div!=0)
             div = div + 1;
         else {
             number = number / div;
-            printf("%ld ",div);
+            printf(1,"%d ",div);
             if(number==1)
                 break;
         }
     }
-  printf("\n");  
-
-  return 0;
+  printf(2,"\n");
+  exit();
 }
