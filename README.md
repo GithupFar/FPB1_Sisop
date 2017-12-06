@@ -1,3 +1,5 @@
 # FPB1_Sisop
-Semangat!! FPB1 : v
-DL 9 Dec 2017
+
+link proposal : https://docs.google.com/document/d/1DR3wla508VRWm0hESVAcn4PydZet4GkQwo_8dqZ24O0/edit
+
+link referensi :
