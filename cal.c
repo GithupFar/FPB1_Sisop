@@ -1,6 +1,3 @@
-// This calendar example is provided by:
-// http://www.codingunit.com Programming Tutorials
-
 #include <stdio.h>
 #include <stdlib.h>
 #define TRUE    1
@@ -29,7 +26,7 @@ int determinedaycode(int year)
 {
 	int daycode;
 	int d1, d2, d3;
-	
+	// Leap years because of 365.24 days, actual conversion.
 	d1 = (year - 1)/ 4;
 	d2 = (year - 1)/ 100;
 	d3 = (year - 1)/ 400;
