@@ -1,8 +1,8 @@
 // This calendar example is provided by:
 // http://www.codingunit.com Programming Tutorials
 
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 #define TRUE    1
 #define FALSE   0
 
@@ -58,29 +58,26 @@ void calendar(int year, int daycode,int x)
 	for ( month = 1; month < x; month++ )
 	{
 		
-			// Set position for next month
-			daycode = ( daycode + days_in_month[month] ) % 7;
+		// Set position for next month
+		daycode = ( daycode + days_in_month[month] ) % 7;
 	}
-		printf("%s %d", months[month],year);
-		printf("\n\nSun  Mon  Tue  Wed  Thu  Fri  Sat\n" );
+	printf("%s %d", months[month],year);
+	printf("\n\nSun  Mon  Tue  Wed  Thu  Fri  Sat\n" );
 		
-		// Correct the position for the first date
-		for ( day = 1; day <= 1 + daycode * 5; day++ )
-		{
-			printf(" ");
-		}
+	// Correct the position for the first date
+	for ( day = 1; day <= 1 + daycode * 5; day++ )
+	{
+		printf(" ");
+	}
 		
-		// Print all the dates for one month
-		for ( day = 1; day <= days_in_month[month]; day++ )
-		{
-			printf("%2d", day );
-			
-			// Is day before Sat? Else start next line Sun.
-			if ( ( day + daycode ) % 7 > 0 )
-				printf("   " );
-			else
-				printf("\n " );
-		}
+	// Print all the dates for one month
+	for ( day = 1; day <= days_in_month[month]; day++ )
+	{
+		printf("%2d", day );
+		// Is day before Sat? Else start next line Sun.
+		if ( ( day + daycode ) % 7 > 0 )printf("   " );
+		else printf("\n " );
+	}
         printf("\n");
 }
 
@@ -89,10 +86,10 @@ int main(int argc,char *argv[])
 {
 	int year, daycode, leapyear,x,Input[3],status;
 	while(status<argc-1)
-    {
-        status++;
-        Input[status] = atoi(argv[status]);
-    }
+	{
+		status++;
+		Input[status] = atoi(argv[status]);
+	}
 
     x = Input[1];
     
@@ -101,8 +98,8 @@ int main(int argc,char *argv[])
         year = 2017;
         int a = 11,b = 12, c = 1;
         daycode = determinedaycode(year);
-	    determineleapyear(year);
-	    calendar(year, daycode,a);
+	determineleapyear(year);
+	calendar(year, daycode,a);
         calendar(year, daycode,b);
         calendar(year, daycode,c);
         printf("\n");
@@ -111,8 +108,8 @@ int main(int argc,char *argv[])
     {
         year = Input[2];
         daycode = determinedaycode(year);
-	    determineleapyear(year);
-	    calendar(year, daycode,x);
-	    printf("\n");
+	determineleapyear(year);
+	calendar(year, daycode,x);
+	printf("\n");
     }
 }
