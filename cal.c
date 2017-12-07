@@ -54,7 +54,6 @@ void calendar(int year, int daycode,int x)
 	int month, day;
 	for ( month = 1; month < x; month++ )
 	{
-		
 		// Set position for next month
 		daycode = ( daycode + days_in_month[month] ) % 7;
 	}
