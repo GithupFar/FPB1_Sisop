@@ -60,8 +60,9 @@ int main(int argc, char *argv[]){
             return r;
         }
         if(!S_ISDIR(st.st_mode)){
-            fprintf(stderr, "rmrf: %s not a directory\n", argv[i]);
-            return 0;
+            //fprintf(stderr, "rmrf: %s not a directory\n", argv[i]);
+            r = unlink(argv[i]);
+            return r;
         }
         r = remove_directory(argv[i]);
         if(r < 0){
