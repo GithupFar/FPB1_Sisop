@@ -4,10 +4,8 @@
 #include "stat.h"
 
 int main(int argc, char*argv[]){
-    char buf[520];
-
-	int file, dir,n, length1, length2;
-    struct stat st;
+    	char buf[520];
+	int file, dir,n;
 	if(argc < 3){
 		printf(1,"Tambahkan lagi argumen\n");
 		exit();
