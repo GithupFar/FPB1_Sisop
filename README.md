@@ -2,7 +2,9 @@
 
 link proposal : https://docs.google.com/document/d/1DR3wla508VRWm0hESVAcn4PydZet4GkQwo_8dqZ24O0/edit
 
-link referensi :
+link referensi : 
+byfar : https://github.com/zhujinliang/ls/blob/master/ls.c
+        https://github.com/GuillaumeBadi/ls.c/blob/master/ft_ls.c
 
 Anggota kelompok:
 1. Faridatul N. A. (5116100010)
