@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #define TRUE    1
 #define FALSE   0
 
@@ -80,7 +81,7 @@ void calendar(int year, int daycode,int x)
 
 int main(int argc,char *argv[])
 {
-	int year, daycode, leapyear,x,Input[3],status;
+	int year, mon[3], daycode, leapyear,x,Input[3],status;
 	while(status<argc-1)
 	{
 		status++;
@@ -91,21 +92,47 @@ int main(int argc,char *argv[])
     
     if(x==-3)
     {
-        year = 2017;
-        int a = 11,b = 12, c = 1;
-        daycode = determinedaycode(year);
-	determineleapyear(year);
-	calendar(year, daycode,a);
-        calendar(year, daycode,b);
-        calendar(year, daycode,c);
+        time_t t = time(0);
+		struct tm tm = *localtime(&t);
+		mon[1] = tm.tm_mon + 1;
+		year = tm.tm_year + 1900;
+		if(mon[1] == 1){
+			mon[0] = 12;
+			mon[2] = mon[1]+1;
+		    daycode = determinedaycode(year-1);
+			determineleapyear(year);
+			calendar(year-1, daycode,mon[0]);
+			daycode = determinedaycode(year);
+    	    calendar(year, daycode,mon[1]);
+    	    calendar(year, daycode,mon[2]);
+		}
+		else if(mon[1] == 12){
+			mon[0] = mon[1]-1;
+			mon[2] = 1;
+		    daycode = determinedaycode(year);
+			determineleapyear(year);
+			calendar(year, daycode,mon[0]);
+    	    calendar(year, daycode,mon[1]);
+    	    daycode = determinedaycode(year+1);
+    	    calendar(year+1, daycode,mon[2]);
+		}
+		else{
+			mon[0] = mon[1]-1;
+			mon[2] = mon[1]+1;
+		    daycode = determinedaycode(year);
+			determineleapyear(year);
+			calendar(year, daycode,mon[0]);
+    	    calendar(year, daycode,mon[1]);
+    	    calendar(year, daycode,mon[2]);
+		}
         printf("\n");
     }
     else
     {
         year = Input[2];
         daycode = determinedaycode(year);
-	determineleapyear(year);
-	calendar(year, daycode,x);
-	printf("\n");
+		determineleapyear(year);
+		calendar(year, daycode,x);
+		printf("\n");
     }
 }
